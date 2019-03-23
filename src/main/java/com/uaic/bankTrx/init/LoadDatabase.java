@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @Slf4j
 public class LoadDatabase {
-	@Bean
+	//@Bean
 	CommandLineRunner initDatabase(UserRepository userRepository ,UserLoginRepository repository) {
 		return args -> {
 

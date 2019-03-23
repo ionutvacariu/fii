@@ -67,7 +67,7 @@
 
     <build>
         <plugins>
-            <!-- solve spring dependencyes -  important plugin-->
+            <!-- solve spring version dependencyes -  important plugin-->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>

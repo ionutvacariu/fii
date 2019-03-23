@@ -10,7 +10,7 @@ import javax.persistence.*;
 public class UserLoginInfo {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 /*
 	@OneToOne(cascade = CascadeType.ALL)
