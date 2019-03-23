@@ -11,12 +11,15 @@ public class Transaction {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "id", nullable = false, insertable = false, updatable = false)
+	@ManyToOne
+	//think have to be table (java)name _id
+	//@JoinColumn(name = "from_user_id",referencedColumnName = "id",nullable = false,insertable = false, updatable = false)
+
+	@JoinTable(name = "USER_FROM_TRANSACTIONS", joinColumns = @JoinColumn(name = "USER_ID"), inverseJoinColumns = @JoinColumn(name = "TRANSACTION_FROM_USER"))
 	private User fromUser;
 
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "id", nullable = false, insertable = false, updatable = false)
+	@ManyToOne
+	@JoinTable(name = "USER_TO_TRANSACTIONS", joinColumns = @JoinColumn(name = "USER_ID"), inverseJoinColumns = @JoinColumn(name = "TRANSACTION_TO_USER"))
 	private User toUser;
 
 	private Double amount;
