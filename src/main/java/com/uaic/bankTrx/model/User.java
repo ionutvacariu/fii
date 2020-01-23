@@ -39,4 +39,35 @@ public class User {
 		this.userLoginInfo = userLoginInfo;
 	}
 
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Double getAmount() {
+		return amount;
+	}
+
+	public void setAmount(Double amount) {
+		this.amount = amount;
+	}
+
+	public UserLoginInfo getUserLoginInfo() {
+		return userLoginInfo;
+	}
+
+	public void setUserLoginInfo(UserLoginInfo userLoginInfo) {
+		this.userLoginInfo = userLoginInfo;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 }

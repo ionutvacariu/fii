@@ -11,25 +11,25 @@ import org.springframework.security.config.annotation.web.configurers.Expression
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-	@Autowired
-	private UserLoginService userLoginRepository;
+    @Autowired
+    private UserLoginService userLoginRepository;
 
-	@Autowired
-	public void configAuthentication(AuthenticationManagerBuilder auth) throws Exception {
-		auth.userDetailsService(userLoginRepository);
-	}
+    @Autowired
+    public void configAuthentication(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(userLoginRepository);
+    }
 
-	@Override
-	protected void configure(HttpSecurity http) throws Exception {
-		final ExpressionUrlAuthorizationConfigurer<HttpSecurity>.ExpressionInterceptUrlRegistry
-				request = http.authorizeRequests();
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        final ExpressionUrlAuthorizationConfigurer<HttpSecurity>.ExpressionInterceptUrlRegistry
+                request = http.authorizeRequests();
 
-		request.and().csrf().disable();
-		request.and().httpBasic(); // tell to use basic authentication
+        request.and().csrf().disable();
+        request.and().httpBasic(); // tell to use basic authentication
 
-		request.and().logout();
-		request.
-				antMatchers("/*").authenticated().anyRequest().permitAll().and().formLogin().permitAll();
-	}
+        request.and().logout();
+        request.
+                antMatchers("/*").authenticated().anyRequest().permitAll().and().formLogin().permitAll();
+    }
 
 }
